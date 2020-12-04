@@ -141,6 +141,11 @@ In the first look at my data, it appeared that the questions all had a high leve
 3) Output new transformed data frame for later use.
 4) Evaluate top 5 PCA components to determine most weighted questions
 
+Dimensiobnaltiy reduction
+1. reduce correlation and reduce dimensonality
+2. Similiarties between questions 
+
+Clear seperatability between the two groups. 
 
 ![pca_plot](images/pca_plot.png)
 
@@ -161,7 +166,7 @@ The following steps outline how I conducted my logistic regression model
 4) Predict X test future values.
 5) Output performace of model
 
-# sc0000000res
+This logistic regression produced an **Accuracy of 98.23%**.
 
 
 # Single Decsion Tree
@@ -174,12 +179,12 @@ For a second model I chose to apply a [Single Decision Tree](https://en.wikipedi
 The steps taken to apply this model were very similiar to the logistic regression steps. After fiting and training the new model here are the scores of the single decision tree:
 
 
-# SC0000000res 
+The single decision tree produced an **Accuracy of 98.24%**
 
 
 # Conclusions and future expansions
 In this project, I took a questionaire survey of 54 features that 170 different couples were asked to respond to. The goal was to train a model to accurately predict new incoming survey data on weather or not the couple would divorce. With both my models coming in at 98.23% and 98.24% accuracy scores this project was a success. 
 
+In the future I would like to create a user interface by means of a flask app that allows new couples to complete the survey. Upon completion of the survey, their results would then be put through my models and a prediction would be displayed for the user. 
 
 
-# Weaknesses of Study
