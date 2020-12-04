@@ -7,32 +7,11 @@ Can divorce be predicted based of a 54 questonaire? In this project the goal is 
 
 Divorce has been increasingly common in today's society. The Center for Disease Control, [CDC](https://www.cdc.gov/) conducts a [National survery](https://www.cdc.gov/nchs/data/dvs/national-marriage-divorce-rates-00-18.pdf) anually on marriage and divorce rate trends. The latest findings reported 2,132,853 marriages and 782,038 divorces for just the year 2018. 
 
-
+It turns out that Turkey is among some of the top countries with increasing divorce rates. 
 
 
 # The Data
 The data for this project was found [here](http://archive.ics.uci.edu/ml/datasets/Divorce+Predictors+data+set). Hosted by the UCI machine learning repository. A break down of 54 features and 170 different participants.
-
-For a full 54 exhaustive list of features from the study click [here](http://archive.ics.uci.edu/ml/datasets/Divorce+Predictors+data+set) and scroll slightly down.
-
-Within the scope of this research,
-the divorce prediction was carried out by using the Divorce Predictors Scale
-(DPS) developed by Yöntem and İlhan (2017, 2018) on the basis of Gottman
-couples therapy (Gottman, 2014; Gottman and Gottman, 2012). The reason
-for this is that Gottman couples therapy is a model that explains the causes
-of divorce based on empirical research. 
-
-Of the participants, 84 (49%) were divorced and 86 (51%) were
-married couples. There were 84 males (49%) and 86 females (51%) in the
-study group. The ages of the participants ranged from 20 to 63 (X̄= 36.04).
- Although the study was collected from seven different
-regions of Turkey, the data can be applied to most demographics.
-
-Important to note that of the participants, 74 (43.5%) were married for love, and 96 (56.5%) were married in an arranged marriage
-
-
-
-# Intital EDA
 
 <details>
   <summary>
@@ -95,10 +74,30 @@ Important to note that of the participants, 74 (43.5%) were married for love, an
     <li> When I discuss it, I remind her of my wife’s inadequate issues. </li>
     <li> I’m not afraid to tell her about my wife’s incompetence </li>
    </ol>
-</details>
+</details>.
+
+
+
+
+The original  divorce prediction was carried out by using the  Divorce Predictors Scale (DPS) developed by Yöntem and İlhan (2017, 2018) on the basis of Gottman couples therapy (Gottman, 2014; Gottman and Gottman, 2012). The reason
+for this is that Gottman couples therapy is a model that explains the causes of divorce based on empirical research. 
+
+Of the participants, 84 (49%) were divorced and 86 (51%) were
+married couples. There were 84 males (49%) and 86 females (51%) in the
+study group. The ages of the participants ranged from 20 to 63 (X̄= 36.04).
+ Although the study was collected from seven different
+regions of Turkey, the data can be applied to most demographics.
+
+Important to note that of the participants, 74 (43.5%) were married for love, and 96 (56.5%) were married in an arranged marriage
+
+
+
+# Intital EDA
+
 
 
 First, taking a look at the raw data yields us:
+
 |    |   Atr1 |   Atr2 |   Atr3 |   Atr4 |   Atr5 |   Atr6 |   Atr7 |   Atr8 |   Atr9 |   Atr10 |   Atr11 |   Atr12 |   Atr13 |   Atr14 |   Atr15 |   Atr16 |   Atr17 |   Atr18 |   Atr19 |   Atr20 |   Atr21 |   Atr22 |   Atr23 |   Atr24 |   Atr25 |   Atr26 |   Atr27 |   Atr28 |   Atr29 |   Atr30 |   Atr31 |   Atr32 |   Atr33 |   Atr34 |   Atr35 |   Atr36 |   Atr37 |   Atr38 |   Atr39 |   Atr40 |   Atr41 |   Atr42 |   Atr43 |   Atr44 |   Atr45 |   Atr46 |   Atr47 |   Atr48 |   Atr49 |   Atr50 |   Atr51 |   Atr52 |   Atr53 |   Atr54 |   Class |
 |---:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|
 |  0 |      2 |      2 |      4 |      1 |      0 |      0 |      0 |      0 |      0 |       0 |       1 |       0 |       1 |       1 |       0 |       1 |       0 |       0 |       0 |       1 |       0 |       0 |       0 |       0 |       0 |       0 |       0 |       0 |       0 |       1 |       1 |       2 |       1 |       2 |       0 |       1 |       2 |       1 |       3 |       3 |       2 |       1 |       1 |       2 |       3 |       2 |       1 |       3 |       3 |       3 |       2 |       3 |       2 |       1 |       1 |
@@ -124,11 +123,12 @@ In order to answer this question a Principal Component Analysis was conducted on
 
 Based off my calculations from this survey I can tell you that the top 5 most important features in a marriage asked in this survey are the following:
 
-## 1: I enjoy traveling with my significant other.
-## 2: The time I spend with my significant other is special for us.
-## 3: My significant other and I share the same views about being happy in life
-## 4: I know my significant other very well.
-## 5: My significant other and I have similiar ideas about roles in marriage
+| 1 | I enjoy traveling with my significant other.                               |
+|---|----------------------------------------------------------------------------|
+| 2 | The time I spend with my significant other is special for us.              |
+| 3 | My significant other and I share the same views about being happy in life. |
+| 4 | I know my significant other very well.                                     |
+| 5 | My significant other and I have similar ideas about roles in marriage      |
 
 You can see a clear relationship from the top two both dealing with spending time with a significant other. And it turns out, experts agree. According to a recent article in the Journal of marriage and family, couples were twice as happy in their life when they spent more time together. Who would of thought!
 
@@ -188,3 +188,7 @@ In this project, I took a questionaire survey of 54 features that 170 different 
 In the future I would like to create a user interface by means of a flask app that allows new couples to complete the survey. Upon completion of the survey, their results would then be put through my models and a prediction would be displayed for the user. 
 
 
+# Weakness of study
+In this project there are weaknesses in the data and the study overall. The most immediate concern is that all the previous data was collected from couples who were already attending couples thearpy together. Another weakness that was discovered was the fact that some questions answering a "4-Strongly agree" could have completely different meanings. For example, if the participant answers strongly agree to "I enjoy traveling with my significant other" and also answers strongly agree to "I can use negative statements about my significant others personality during our discussions" the model has a difficult time distinguishing between these two outcomes. 
+
+It's also very important to highlight the fact that 56% of the couples that participated in the survery were in an arranged marriage. 
