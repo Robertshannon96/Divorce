@@ -5,7 +5,7 @@ Can divorce be predicted based on a 54 questionnaire In this project the goal is
 
 # Background
 
-Divorce has been increasingly common in today's society. The Center for Disease Control, [CDC](https://www.cdc.gov/) conducts a [National survery](https://www.cdc.gov/nchs/data/dvs/national-marriage-divorce-rates-00-18.pdf) anually on marriage and divorce rate trends. The latest findings for us here in the United States, it's reported that 2,132,853 marriages and 782,038 divorces for just the year 2018. 
+Divorce has been increasingly common in today's society. The Center for Disease Control, [CDC](https://www.cdc.gov/) conducts a [National survey](https://www.cdc.gov/nchs/data/dvs/national-marriage-divorce-rates-00-18.pdf) anually on marriage and divorce rate trends. The latest findings for us here in the United States, it's reported that 2,132,853 marriages and 782,038 divorces for just the year 2018. 
 
 It turns out that Turkey is among some of the top countries with increasing divorce rates. [Turk stat](https://www.tuik.gov.tr/Home/Index), the Turkish statistical institution of Turkey reported that "A total of 155,047 [out of 554,389 marriages] couples got divorced last year, climbing 8% year-to-year". 
 
