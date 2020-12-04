@@ -1,23 +1,23 @@
 # Predicting Divorce With Machine Learning
 
 # The Goal
-Can divorce be predicted based of a 54 questonaire? In this project the goal is to cater to both consumers and data scientists. Consumers in this case are new couples entering into the world of marriage who want to discover important questions that impact how successful a marriage in. In order to satisfy fellow data scientists, the other goal in this project to create the best possible model to predict marriage sucess based on previous data.
+Can divorce be predicted based on a 54 questionnaire In this project the goal is to cater to both consumers and data scientists. Consumers in this case are new couples entering into the world of marriage who want to discover important questions that impact how successful a marriage is. In order to satisfy fellow data scientists, the other goal in this project is to create the best possible model to predict marriage success based on previous data.
 
 # Background
 
-Divorce has been increasingly common in today's society. The Center for Disease Control, [CDC](https://www.cdc.gov/) conducts a [National survery](https://www.cdc.gov/nchs/data/dvs/national-marriage-divorce-rates-00-18.pdf) anually on marriage and divorce rate trends. The latest findings reported 2,132,853 marriages and 782,038 divorces for just the year 2018. 
+Divorce has been increasingly common in today's society. The Center for Disease Control, [CDC](https://www.cdc.gov/) conducts a [National survery](https://www.cdc.gov/nchs/data/dvs/national-marriage-divorce-rates-00-18.pdf) anually on marriage and divorce rate trends. The latest findings for us here in the United States, it's reported that 2,132,853 marriages and 782,038 divorces for just the year 2018. 
 
-It turns out that Turkey is among some of the top countries with increasing divorce rates. 
+It turns out that Turkey is among some of the top countries with increasing divorce rates. [Turk stat](https://www.tuik.gov.tr/Home/Index), the Turkish statistical institution of Turkey reported that "A total of 155,047 [out of 554,389 marriages] couples got divorced last year, climbing 8% year-to-year". 
 
 
 # The Data
-The data for this project was found [here](http://archive.ics.uci.edu/ml/datasets/Divorce+Predictors+data+set). Hosted by the UCI machine learning repository. A break down of 54 features and 170 different participants.
+The data for this project was found [here](http://archive.ics.uci.edu/ml/datasets/Divorce+Predictors+data+set). Hosted by the UCI machine learning repository. A breakdown of 54 features and 170 different participants. The survey was conducted on couples from the country of Turkey as this country displays an abnormally high divorce rate
 
 <details>
   <summary>
     Click this drop down menu to take a look at all questions from the survey.
   </summary>
-**Import**  to note here that these questions are a direct Turkish-English translation and are quite loose in their meanings. Upon further reading, each participant in the relationship were asked these questions about their significant other, instead of just the male asked about the wife as it appears.
+**Import**  to note here that these questions are a direct Turkish-English translation and are quite loose in their meanings. Upon further reading, each participant in the relationship was asked these questions about their significant other, instead of just the male asked about the wife as it appears.
     <ol>
    <li> When one of our apologies apologizes when our discussions go in a bad direction, the issue does not extend.</li>
     <li> I know we can ignore our differences, even if things get hard sometimes. </li>
@@ -92,7 +92,7 @@ Important to note that of the participants, 74 (43.5%) were married for love, an
 
 
 
-# Intital EDA
+# Exploratory Data Analysis
 
 
 
@@ -107,21 +107,22 @@ First, taking a look at the raw data yields us:
 |  4 |      2 |      2 |      1 |      1 |      1 |      1 |      0 |      0 |      0 |       0 |       0 |       1 |       0 |       1 |       1 |       1 |       1 |       1 |       2 |       1 |       1 |       0 |       0 |       0 |       0 |       2 |       1 |       2 |       1 |       1 |       1 |       1 |       1 |       1 |       0 |       0 |       0 |       0 |       2 |       1 |       0 |       2 |       3 |       0 |       2 |       2 |       1 |       2 |       3 |       2 |       2 |       2 |       1 |       0 |       1 |
 
 
-To get a better understanding of my data I needed to first grasp how the questionaire was conducted. Participiants were provided a list of 54 statements amount marriage and asked to provide a 1-4 response of 4 = strongly agree, 3 = agree, 2 = disagree, and 1 = strongly disagree.
+To get a better understanding of my data I needed to first grasp how the questionnaire was conducted. Participants were provided a list of 54 statements about marriage and asked to provide a 1-4 response of 4 = strongly agree, 3 = agree, 2 = disagree, and 1 = strongly disagree.
 
-With this in mind I wanted to then look at a simple distribution of our output class, "Married or dviorced".
+With this in mind I wanted to then look at a simple distribution of our output class, "Married or divorced".
 
 ![simple_plot](images/count_plot.png)
-Luckily our data is evenely disributed so we won't need to worry about any class imablances here. 
+Luckily our data is evenly distributed so we won't need to worry about any class imbalances here. 
 
 
 # For New Couples
 
-To address the new couples audience one of the most important things to look at from this project is based off this questionaire "What really are the most important questions for a successul mariage?". 
+To address the new couples audience one of the most important things to look at from this project is based on this questionnaire "What really are the most important questions for a successful marriage?". 
 
 In order to answer this question a Principal Component Analysis was conducted on the existing data to determine which question from the survey will be most important on future surveys completed by new couples. Now, for the time being you can forget about the process behind how this was calculated as we will discuss that once we address the Data science audience. 
 
-Based off my calculations from this survey I can tell you that the top 5 most important features in a marriage asked in this survey are the following:
+Based on my findings from this survey I can tell you that the top 5 most important features in a marriage asked in this survey are the following.
+
 
 | 1 | I enjoy traveling with my significant other.                               |
 |---|----------------------------------------------------------------------------|
@@ -130,22 +131,18 @@ Based off my calculations from this survey I can tell you that the top 5 most im
 | 4 | I know my significant other very well.                                     |
 | 5 | My significant other and I have similar ideas about roles in marriage      |
 
-You can see a clear relationship from the top two both dealing with spending time with a significant other. And it turns out, experts agree. According to a recent article in the Journal of marriage and family, couples were twice as happy in their life when they spent more time together. Who would of thought!
+You can see a clear relationship from the top two both dealing with spending time with a significant other. And it turns out, experts agree. According to a recent article in the Journal of marriage and family, couples were twice as happy in their life when they spent more time together. 
 
 # Principal Component Analysis
-In the first look at my data, it appeared that the questions all had a high level of correlation to one another. To solve this the Principal Component Analysis method was applied.
+In the first look at my data, it appeared that the questions all had a high level of correlation to one another. To solve this the Principal Component Analysis method was applied in order to reduce correlation and reduce the dimensionality of the data.
 
 **Steps of PCA**
 1) Standardize columns so mean = 0 and standard deviation = 1
 2) Define number of components, then fit PCA onto new standardized data. 
 3) Output new transformed data frame for later use.
-4) Evaluate top 5 PCA components to determine most weighted questions
+4) Evaluate top 5 PCA components to determine most weighted questions.
 
-Dimensiobnaltiy reduction
-1. reduce correlation and reduce dimensonality
-2. Similiarties between questions 
-
-Clear seperatability between the two groups. 
+Clear separability between the two groups. 
 
 ![pca_plot](images/pca_plot.png)
 
@@ -164,31 +161,32 @@ The following steps outline how I conducted my logistic regression model
 
 3) Fit the logistic regression model on the data and train model.
 4) Predict X test future values.
-5) Output performace of model
+5) Output performance of model
 
-This logistic regression produced an **Accuracy of 98.23%**.
+After these steps, this logistic regression produced an **Accuracy of 98.23%**.
 
 
-# Single Decsion Tree
 
-For a second model I chose to apply a [Single Decision Tree](https://en.wikipedia.org/wiki/Decision_tree#:~:text=A%20decision%20tree%20is%20a%20flowchart%2Dlike%20structure%20in%20which,taken%20after%20computing%20all%20attributes) to my data. It's important to note here, that unlike in the logistic regression model where the PCA dataframe was used, the orginal data frame was used.
+# Single Decision Tree
+
+For a second model I chose to apply a [Single Decision Tree](https://en.wikipedia.org/wiki/Decision_tree#:~:text=A%20decision%20tree%20is%20a%20flowchart%2Dlike%20structure%20in%20which,taken%20after%20computing%20all%20attributes) to my data. It's important to note here, that unlike in the logistic regression model where the PCA dataframe was used, the original data frame was used.
 
 ![Tree](images/tree.png)
 
 
-The steps taken to apply this model were very similiar to the logistic regression steps. After fiting and training the new model here are the scores of the single decision tree:
+The steps taken to apply this model were very similar to the logistic regression steps. After fitting and training the new model here are the scores of the single decision tree:
 
 
 The single decision tree produced an **Accuracy of 98.24%**
 
 
 # Conclusions and future expansions
-In this project, I took a questionaire survey of 54 features that 170 different couples were asked to respond to. The goal was to train a model to accurately predict new incoming survey data on weather or not the couple would divorce. With both my models coming in at 98.23% and 98.24% accuracy scores this project was a success. 
+In this project, I took a questionnaire survey of 54 features that 170 different couples were asked to respond to. The goal was to train a model to accurately predict new incoming survey data on weather or not the couple would divorce. With both my models coming in at 98.23% and 98.24% accuracy scores this project was a success. 
 
 In the future I would like to create a user interface by means of a flask app that allows new couples to complete the survey. Upon completion of the survey, their results would then be put through my models and a prediction would be displayed for the user. 
 
 
 # Weakness of study
-In this project there are weaknesses in the data and the study overall. The most immediate concern is that all the previous data was collected from couples who were already attending couples thearpy together. Another weakness that was discovered was the fact that some questions answering a "4-Strongly agree" could have completely different meanings. For example, if the participant answers strongly agree to "I enjoy traveling with my significant other" and also answers strongly agree to "I can use negative statements about my significant others personality during our discussions" the model has a difficult time distinguishing between these two outcomes. 
+In this project there are weaknesses in the data and the study overall. The most immediate concern is that all the previous data was collected from couples who were already attending couples therapy together. Another weakness that was discovered was the fact that some questions answering a "4-Strongly agree" could have completely different meanings. For example, if the participant answers strongly agree to "I enjoy traveling with my significant other" and also answers strongly agree to "I can use negative statements about my significant others personality during our discussions". The model has a difficult time distinguishing between these two outcomes. 
 
-It's also very important to highlight the fact that 56% of the couples that participated in the survery were in an arranged marriage. 
+It's also very important to highlight the fact that 56% of the couples that participated in the survey were in an arranged marriage. 
